@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FireBaseTotorial</string>
+
+    <string name="prefs_file">com.example.firebasetotorial.PREFERENCE_FILE_KEY</string>
 </resources>
