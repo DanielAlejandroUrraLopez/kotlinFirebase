@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "72701722021",
+    "project_id": "fir-tutorial-daniel-dev-2020",
+    "storage_bucket": "fir-tutorial-daniel-dev-2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72701722021:android:920c5f7bdc74204ee07c4c",
+        "android_client_info": {
+          "package_name": "com.example.firebasetotorial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72701722021-5vic0mflu0jls9kp4f688ieph7mqb1du.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firebasetotorial",
+            "certificate_hash": "1f44b6260d2f07b31acec7fc404a2c317ed94abb"
+          }
+        },
+        {
+          "client_id": "72701722021-es1fqh5mp109b44vtrlksft59cjldggl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHZHzmrCliepd2iUy8ZYgHxnIlY_HZTsA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "72701722021-es1fqh5mp109b44vtrlksft59cjldggl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
