@@ -20,6 +20,8 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.iid.FirebaseInstanceId
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.android.synthetic.main.activity_auth.*
 
 class AuthActivity : AppCompatActivity() {
@@ -38,6 +40,7 @@ class AuthActivity : AppCompatActivity() {
         analytics.logEvent("InitScreen",bundle)
 
         // seutup
+        notification()
         setup()
         session()
     }
@@ -56,6 +59,21 @@ class AuthActivity : AppCompatActivity() {
         if(email !=  null && provider != null){
             authLayout.visibility = View.INVISIBLE
             showHome(email,ProviderType.valueOf(provider))
+        }
+    }
+
+    private fun notification() {
+        FirebaseInstanceId.getInstance().instanceId.addOnCompleteListener{
+            it.result?.token?.let {
+                println("este es el valor del dispositivo: ${it}")
+            }
+        }
+        // temas (topics)
+        /*FirebaseMessaging.getInstance().subscribeToTopic("tutorial")*/
+        // recupoerar informacion
+        val url = intent.getStringExtra("url")
+        url?.let{
+            println("este es el valor push ${it}")
         }
     }
 
