@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.facebook.login.LoginManager
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_home.*
 
 enum class ProviderType {
@@ -14,6 +15,7 @@ enum class ProviderType {
 }
 class HomeActivity : AppCompatActivity() {
 
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +58,22 @@ class HomeActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+        saveButton.setOnClickListener{
+            db.collection("users").document(email).set(
+                hashMapOf("provider" to provider, "addres" to addressTextView.text.toString(), "phone" to phoneTextView.text.toString())
+            )
+        }
+
+        getButton.setOnClickListener{
+            db.collection("users").document(email).get().addOnSuccessListener {
+                addressTextView.setText(it.get("addres") as String?)
+                phoneTextView.setText(it.get("phone") as String?)
+            }
+        }
+
+        deleteButton.setOnClickListener {
+            db.collection("users").document(email).delete()
+        }
 
     }
 }
